@@ -3,13 +3,15 @@ import { createStackNavigator } from 'react-navigation';
 
 import HomeScreen from './HomeScreen';
 import Directions from './Directions';
-import Login from './Login';
+import WalkHomeScreen from './WalkHomeScreen'
+import NewWalk from './NewWalk'
 
 const RootStack = createStackNavigator(
   {
     Home: HomeScreen,
     Directions: Directions,
-    Authentication: Login,
+    WalkHome: WalkHomeScreen,
+    New: NewWalk,
   },
   {
     initialRouteName: 'Home',

@@ -7,10 +7,13 @@ class HomeScreen extends React.Component {
     return (
       <View style={styles.container}>
         <Text style = {styles.homeScreenText}> Start or Join a Walk </Text>
-        <Button
-          title="Go to Authentication"
-          onPress={logIn}
-        />
+          <View style = {styles.buttonSpace}>
+            <Button
+              title="Authentication"
+              onPress={() => this.props.navigation.navigate('WalkHome')}
+              // onPress={logIn}
+            />
+          </View>
       </View>
     );
   }
@@ -31,6 +34,9 @@ const styles = StyleSheet.create({
     fontSize: 30,
     fontWeight: 'bold',
     color: 'white',
+  },
+  buttonSpace: {
+    marginTop: 20,
   },
 });
 
