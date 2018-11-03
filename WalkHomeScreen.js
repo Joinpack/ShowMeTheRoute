@@ -48,7 +48,8 @@ const styles = StyleSheet.create({
     height: 125,
     backgroundColor: 'black',
     flexDirection: 'row',
-    justifyContent: 'center'
+    justifyContent: 'center',
+    borderRadius: 25,
   },
   createWalkStyle: {
     fontSize: 50,
