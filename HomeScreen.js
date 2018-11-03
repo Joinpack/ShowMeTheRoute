@@ -11,6 +11,10 @@ class HomeScreen extends React.Component {
           title="Go to Authentication"
           onPress={logIn}
         />
+        <Button
+          title="Go to Directions"
+          onPress={() => this.props.navigation.navigate('Directions')}
+        />
       </View>
     );
   }
