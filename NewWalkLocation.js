@@ -16,8 +16,8 @@ class NewWalkScreenLocation extends React.Component {
      return (
        <View style = {styles.container}>
          <TextInput
-           style={{height: 500, textAlign: 'center', fontSize: 30}}
            placeholder="Where are you?"
+           style={{height: 500, width: 1000, textAlign: 'center', fontSize: 30}}
            onChangeText={(text) => this.setState({text})}
            value={this.state.text}
          />
@@ -39,10 +39,11 @@ const styles = StyleSheet.create({
     flex: 1,
     backgroundColor: 'powderblue',
     alignItems: 'center',
+    justifyContent: 'space-around',
   },
   buttonContainer: {
     marginBottom: 100,
-    width: 100,
+    width: 75,
     height: 40,
     backgroundColor: 'black',
     flexDirection: 'row',

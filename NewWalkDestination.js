@@ -16,7 +16,7 @@ class NewWalkScreenDestination extends React.Component {
      return (
        <View style = {styles.container}>
          <TextInput
-           style={{height: 500, textAlign: 'center', fontSize: 30}}
+           style={{height: 500, width: 1000, textAlign: 'center', fontSize: 30}}
            placeholder="What is your destination?"
            onChangeText={(text) => this.setState({text})}
            value={this.state.text}
