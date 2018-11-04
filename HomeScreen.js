@@ -24,7 +24,7 @@ class HomeScreen extends React.Component {
             <Button
               title="Continue"
               color ='black'
-              onPress={() => this.props.navigation.navigate('WalkHome')}
+              onPress={() => this.props.navigation.navigate('Departure')}
             />
           </View>
       </View>

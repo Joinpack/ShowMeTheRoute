@@ -1,7 +1,7 @@
 import React from 'react';
 import { StyleSheet, Text, View } from 'react-native';
 
-function getDirections(instance) {
+function getDirections(instance, to, from) {
   fetch('https://route.api.here.com/routing/7.2/calculateroute.json?app_id=sfb5BL0QpbQkDkFxN5Gz&app_code=FNFEHF7nm_XpcuxUzkg98A&mode=fastest;pedestrian;traffic:disabled', {
     method: 'POST',
     headers: {
