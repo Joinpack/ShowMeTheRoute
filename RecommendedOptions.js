@@ -1,19 +1,22 @@
 /*
-ExistingWalksScreens displays walks that have NOT departed yet.
+Gives the user option to take recommended WALK or create new WALK.
 */
 
 import React from 'react';
 import { StyleSheet, ScrollView, Text, View, Button } from 'react-native';
 
-class ExistingWalksScreen extends React.Component {
+class RecommendedOptionsScreen extends React.Component {
+  static navigationOptions = {
+    title: 'Recommended',
+  };
+
   render() {
     return (
-      <ScrollView>
       <View style={styles.container}>
         <Text> {"\n"} {"\n"} {"\n"} </Text>
         <View style={styles.buttonContainer}>
-          <Text style = {styles.createWalkStyle}> Walk #1 {"\n"} {"\n"}
-            Kresge to South Side {"\n"} Departure: 9:45 pm </Text>
+          <Text style = {styles.createWalkStyle}> Recommendation 1 {"\n"} {"\n"}
+            Memorial to South Side {"\n"} Departure: 3:00 pm </Text>
           <Button
             title="Walk #1"
             color="transparent"
@@ -21,8 +24,8 @@ class ExistingWalksScreen extends React.Component {
           />
           </View>
         <View style={styles.buttonContainer}>
-          <Text style = {styles.createWalkStyle}> Walk #2 {"\n"} {"\n"}
-            Moffitt to Down Town {"\n"} Departure: 10:00 pm </Text>
+          <Text style = {styles.createWalkStyle}> Recommendation 2 {"\n"} {"\n"}
+            Memorial to Unit 3 {"\n"} Departure: 3:30 pm </Text>
           <Button
             title="Walk #2"
             color="transparent"
@@ -30,25 +33,15 @@ class ExistingWalksScreen extends React.Component {
           />
         </View>
         <View style={styles.buttonContainer}>
-          <Text style = {styles.createWalkStyle}> Walk #1 {"\n"} {"\n"}
-            Kresge to South Side {"\n"} Departure: 9:45 pm </Text>
+          <Text style = {styles.createWalkStyle}> Recommendation 3 {"\n"} {"\n"}
+            Create Walk {"\n"} Departure: TBD pm </Text>
           <Button
             title="Walk #1"
             color="transparent"
             onPress={() => this.props.navigation.navigate('New')}
           />
           </View>
-        <View style={styles.buttonContainer}>
-          <Text style = {styles.createWalkStyle}> Walk #2 {"\n"} {"\n"}
-            Moffitt to Down Town {"\n"} Departure: 10:00 pm </Text>
-          <Button
-            title="Walk #2"
-            color="transparent"
-            onPress={() => this.props.navigation.navigate('Home')}
-          />
-        </View>
       </View>
-      </ScrollView>
     );
   }
 };
@@ -79,4 +72,4 @@ const styles = StyleSheet.create({
   },
 });
 
-export default ExistingWalksScreen;
+export default RecommendedOptionsScreen;

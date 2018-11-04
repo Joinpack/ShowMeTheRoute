@@ -1,3 +1,6 @@
+import React from 'react';
+import { StyleSheet, Text, View, Button, TextInput } from 'react-native';
+
 class NewWalkScreenLocation extends React.Component {
   static navigationOptions = {
     title: 'Select Location',
@@ -35,13 +38,12 @@ const styles = StyleSheet.create({
     flex: 1,
     backgroundColor: 'powderblue',
     alignItems: 'center',
-    justifyContent: 'space-around',
   },
   buttonContainer: {
     marginBottom: 100,
-    width: 75,
+    width: 100,
     height: 40,
-    backgroundColor: 'black',
+    backgroundColor: 'grey',
     flexDirection: 'row',
     borderRadius: 25,
     justifyContent: 'center'

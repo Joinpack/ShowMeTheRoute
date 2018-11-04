@@ -1,6 +1,5 @@
 import React from 'react';
 import { StyleSheet, Text, View, Button, TextInput } from 'react-native';
-import logIn from './Login';
 
 class HomeScreen extends React.Component {
   static navigationOptions = {
@@ -16,7 +15,7 @@ class HomeScreen extends React.Component {
     return (
       <View style={styles.container}>
         <Text style = {styles.homeScreenText}>
-          Start or Join a Walk
+          {"<"} Insert Title {">"}
         </Text>
         <TextInput style={{height: 100, width: 200, fontSize: 20}} textAlign={'center'} placeholder="Enter your username"
           onChangeText={(username) => this.setState({username})}
@@ -25,7 +24,7 @@ class HomeScreen extends React.Component {
             <Button
               title="Continue"
               color ='black'
-              onPress={() => this.props.navigation.navigate('WalkHome')}
+              onPress={() => this.props.navigation.navigate('RecommendationHome')}
             />
           </View>
       </View>
@@ -52,7 +51,7 @@ const styles = StyleSheet.create({
   buttonSpace: {
     marginTop: 10,
     color: 'black',
-    backgroundColor: 'aquamarine',
+    backgroundColor: 'green',
     flexDirection: 'row',
     justifyContent: 'center',
     borderRadius: 25,
