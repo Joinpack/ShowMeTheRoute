@@ -1,5 +1,5 @@
 import React from 'react';
-import { Animated, Button, Dimensions, Picker, TouchableHighlight, Platform, StyleSheet, TouchableWithoutFeedback, Text, View } from 'react-native';
+import { Animated, Button, Dimensions, Picker, TouchableHighlight, Platform, StyleSheet, TextInput, TouchableWithoutFeedback, Text, View } from 'react-native';
 
 const { width: WindowWidth } = Dimensions.get('window');
 
@@ -25,13 +25,17 @@ class NewWalkScreenDeparture extends React.Component {
     this.state = {
       from: 'California Memorial Stadium',
       to: '[SELECT DESTINATION]',
+      departure: new Date(),
       modalIsVisible: false,
+      modalIsVisible2: false,
       modalAnimatedValue: new Animated.Value(0),
+      modalAnimatedValue2: new Animated.Value(0),
     };
     this.setDestination = this.setDestination.bind(this);
+    this.setDateTime = this.setDateTime.bind(this);
   }
 
-  _handlePressDone = () => {
+  _handlePressDone() {
     Animated.timing(this.state.modalAnimatedValue, {
       toValue: 0,
       duration: 150,
@@ -41,7 +45,17 @@ class NewWalkScreenDeparture extends React.Component {
     });
   };
 
-  _handlePressOpen = () => {
+  _handlePressDone2() {
+    Animated.timing(this.state.modalAnimatedValue2, {
+      toValue: 0,
+      duration: 150,
+      useNativeDriver: true,
+    }).start(() => {
+      this.setState({ modalIsVisible2: false });
+    });
+  };
+
+  _handlePressOpen() {
     if (this.state.modalIsVisible) {
       return;
     }
@@ -55,11 +69,29 @@ class NewWalkScreenDeparture extends React.Component {
     });
   };
 
+  _handlePressOpen2() {
+    if (this.state.modalIsVisible2) {
+      return;
+    }
+
+    this.setState({ modalIsVisible2: true }, () => {
+      Animated.timing(this.state.modalAnimatedValue2, {
+        toValue: 1,
+        duration: 200,
+        useNativeDriver: true,
+      }).start();
+    });
+  };
+
   setDestination(destination) {
     this.setState({to: destination});
   }
 
-  _maybeRenderModal = () => {
+  setDateTime(dateTime) {
+    this.setState({departure: dateTime})
+  }
+
+  _maybeRenderModal() {
     if (!this.state.modalIsVisible) {
       return null;
     }
@@ -103,14 +135,66 @@ class NewWalkScreenDeparture extends React.Component {
       </View>
     );
   }
+
+  _maybeRenderModal2() {
+    if (!this.state.modalIsVisible2) {
+      return null;
+    }
+
+    const { modalAnimatedValue } = this.state;
+    const opacity = modalAnimatedValue;
+    const translateY = modalAnimatedValue.interpolate({
+      inputRange: [0, 1],
+      outputRange: [300, 0],
+    });
+
+    return (
+      <View
+        style={StyleSheet.absoluteFill}
+        pointerEvents={this.state.modalIsVisible2 ? 'auto' : 'none'}>
+        <TouchableWithoutFeedback onPress={this._handlePressDone2}>
+          <Animated.View style={[styles.overlay, { opacity }]} />
+        </TouchableWithoutFeedback>
+        <Animated.View
+          style={{
+            position: 'absolute',
+            bottom: 0,
+            left: 0,
+            transform: [{ translateY }],
+          }}>
+          <View style={styles.toolbar}>
+            <View style={styles.toolbarRight}>
+              <Button title="Done" onPress={this._handlePressDone2} />
+            </View>
+          </View>
+          <DatePickerIOS
+            date={this.state.departure}
+            onDateChange={this.setDateTime}
+          />
+        </Animated.View>
+      </View>
+    );
+  }
   render() {
     return (
       <View style = {styles.container}>
         <Text style={{fontSize: 24, marginBottom: 20}}> From: {this.state.from} </Text>
-        <TouchableHighlight onPress={ this._handlePressOpen }>
-          <Text style={{fontSize: 24}}> To: {this.state.to} </Text>
-        </TouchableHighlight>
-        {this._maybeRenderModal()}
+        <Text style={{fontSize: 24, marginBottom: 20}}> To: {this.state.destination} </Text>
+       <View style={{width: 300}}>
+         <Picker selectedValue={this.state.destination}
+                    onValueChange={(destination) => this.setState({destination})}>
+            <Picker.Item key="Dorms: Unit 1" label="Dorms: Unit 1" value="Dorms: Unit 1" />
+            <Picker.Item key="Dorms: Unit 2" label="Dorms: Unit 2" value="Dorms: Unit 2" />
+            <Picker.Item key="Dorms: Unit 3/Blackwell Hall" label="Dorms: Unit 3/Blackwell Hall" value="Dorms: Unit 3/Blackwell Hall" />
+            <Picker.Item key="Dorms: Foothill" label="Dorms: Foothill" value="Dorms: Foothill" />
+            <Picker.Item key="Dorms: Bowles Hall" label="Dorms: Bowles Hall" value="Dorms: Bowles Hall" />
+            <Picker.Item key="Dorms: Channing-Bowditch" label="Dorms: Channing-Bowditch" value="Dorms: Channing-Bowditch" />
+            <Picker.Item key="Downtown Berkeley BART" label="Downtown Berkeley BART" value="Downtown Berkeley BART" />
+            <Picker.Item key="North Gate Hall" label="North Gate Hall" value="North Gate Hall" />
+            <Picker.Item key="Sproul Hall" label="Sproul Hall" value="Sproul Hall" />
+           </Picker>
+        </View>
+          <Text> Departing on: {this.state.departure.toTimeString()} </Text>
         <View style = {styles.buttonContainer}>
           <Button
             title="Request"
