@@ -50,7 +50,7 @@ const styles = StyleSheet.create({
   },
   buttonSpace: {
     marginTop: 10,
-    color: 'black',
+    color: 'white',
     backgroundColor: 'green',
     flexDirection: 'row',
     justifyContent: 'center',

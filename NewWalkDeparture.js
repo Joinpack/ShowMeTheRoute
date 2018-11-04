@@ -17,14 +17,14 @@ const LOCATIONS = [
 
 class NewWalkScreenDeparture extends React.Component {
   static navigationOptions = {
-    title: 'Select Time',
+    title: 'Confirm Route',
   };
 
   constructor(props) {
     super(props);
     this.state = {
       from: 'California Memorial Stadium',
-      to: '---',
+      to: '[SELECT DESTINATION]',
       modalIsVisible: false,
       modalAnimatedValue: new Animated.Value(0),
     };
@@ -106,10 +106,9 @@ class NewWalkScreenDeparture extends React.Component {
   render() {
     return (
       <View style = {styles.container}>
-        <Text> From: {this.state.from} </Text>
-        <Text> When are heading? </Text>
+        <Text style={{fontSize: 24, marginBottom: 20}}> From: {this.state.from} </Text>
         <TouchableHighlight onPress={ this._handlePressOpen }>
-          <Text> {this.state.to} </Text>
+          <Text style={{fontSize: 24}}> To: {this.state.to} </Text>
         </TouchableHighlight>
         {this._maybeRenderModal()}
         <View style = {styles.buttonContainer}>
@@ -129,12 +128,14 @@ const styles = StyleSheet.create({
     flex: 1,
     backgroundColor: 'powderblue',
     alignItems: 'center',
+    paddingVertical: 40,
   },
   buttonContainer: {
     marginBottom: 100,
+    marginTop: 50,
     width: 100,
     height: 40,
-    backgroundColor: 'black',
+    backgroundColor: 'green',
     flexDirection: 'row',
     borderRadius: 25,
     justifyContent: 'center'
