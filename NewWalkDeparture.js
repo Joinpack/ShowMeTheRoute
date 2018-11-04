@@ -24,7 +24,7 @@ class NewWalkScreenDeparture extends React.Component {
     super(props);
     this.state = {
       from: 'California Memorial Stadium',
-      to: '',
+      to: '---',
       modalIsVisible: false,
       modalAnimatedValue: new Animated.Value(0),
     };
@@ -108,8 +108,8 @@ class NewWalkScreenDeparture extends React.Component {
       <View style = {styles.container}>
         <Text> From: {this.state.from} </Text>
         <Text> When are heading? </Text>
-        <TouchableHighlight onPress={ this._handlePressOpen() }>
-          { this.state.to == '' ? <Text> -- </Text>: <Text> {this.state.to} </Text> }
+        <TouchableHighlight onPress={ this._handlePressOpen }>
+          <Text> {this.state.to} </Text>
         </TouchableHighlight>
         {this._maybeRenderModal()}
         <View style = {styles.buttonContainer}>
