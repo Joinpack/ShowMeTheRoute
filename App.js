@@ -7,6 +7,7 @@ import WalkHomeScreen from './WalkHomeScreen'
 import NewWalkScreenLocation from './NewWalkLocation'
 import NewWalkScreenDestination from './NewWalkDestination'
 import NewWalkScreenDeparture from './NewWalkDeparture'
+import ExistingWalksScreen from './ExistingWalks'
 
 
 const RootStack = createStackNavigator(
@@ -16,7 +17,8 @@ const RootStack = createStackNavigator(
     WalkHome: WalkHomeScreen,
     New: NewWalkScreenLocation,
     Destination: NewWalkScreenDestination,
-    Departure: NewWalkScreenDeparture
+    Departure: NewWalkScreenDeparture,
+    Existing: ExistingWalksScreen,
   },
   {
     initialRouteName: 'Home',

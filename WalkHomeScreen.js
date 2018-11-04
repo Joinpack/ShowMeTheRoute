@@ -27,7 +27,7 @@ class WalkHomeScreen extends React.Component {
           <Button
             title="Join Existing Walks"
             color="transparent"
-            onPress={() => this.props.navigation.navigate('Home')}
+            onPress={() => this.props.navigation.navigate('Existing')}
           />
         </View>
       </View>

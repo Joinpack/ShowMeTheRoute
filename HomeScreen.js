@@ -39,7 +39,7 @@ const styles = StyleSheet.create({
   buttonSpace: {
     marginTop: 20,
     color: 'black',
-    backgroundColor: 'green',
+    backgroundColor: 'aquamarine',
     flexDirection: 'row',
     justifyContent: 'center',
     borderRadius: 25,
