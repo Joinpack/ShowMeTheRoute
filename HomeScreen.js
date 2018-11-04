@@ -12,7 +12,6 @@ class HomeScreen extends React.Component {
               title="Authentication"
               color ='black'
               onPress={() => this.props.navigation.navigate('WalkHome')}
-              // onPress={logIn}
             />
           </View>
       </View>
