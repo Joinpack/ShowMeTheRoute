@@ -7,6 +7,10 @@ import { StyleSheet, Text, View, Button, TextInput } from 'react-native';
 
 
 class NewWalkScreenLocation extends React.Component {
+  static navigationOptions = {
+    title: 'Select Location',
+  };
+
   constructor(props) {
      super(props);
      this.state = { text: '' };

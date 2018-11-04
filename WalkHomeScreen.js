@@ -11,6 +11,10 @@ import { StyleSheet, Text, View, Button } from 'react-native';
 
 
 class WalkHomeScreen extends React.Component {
+  static navigationOptions = {
+    title: 'Choose Walk',
+  };
+
   render() {
     return (
       <View style={styles.container}>

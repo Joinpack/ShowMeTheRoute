@@ -1,15 +1,29 @@
 import React from 'react';
-import { StyleSheet, Text, View, Button } from 'react-native';
+import { StyleSheet, Text, View, Button, TextInput } from 'react-native';
 import logIn from './Login';
 
 class HomeScreen extends React.Component {
+  static navigationOptions = {
+    title: 'Home',
+  };
+
+  constructor(props) {
+    super(props);
+    this.state = {username: ''};
+  }
+
   render() {
     return (
       <View style={styles.container}>
-        <Text style = {styles.homeScreenText}> Start or Join a Walk </Text>
-          <View style = {styles.buttonSpace}>
+        <Text style = {styles.homeScreenText}>
+          Start or Join a Walk
+        </Text>
+        <TextInput style={{height: 100, width: 200, fontSize: 20}} textAlign={'center'} placeholder="Enter your username"
+          onChangeText={(username) => this.setState({username})}
+        />
+        <View style = {styles.buttonSpace}>
             <Button
-              title="Authentication"
+              title="Continue"
               color ='black'
               onPress={() => this.props.navigation.navigate('WalkHome')}
             />
@@ -36,7 +50,7 @@ const styles = StyleSheet.create({
     color: 'white',
   },
   buttonSpace: {
-    marginTop: 20,
+    marginTop: 10,
     color: 'black',
     backgroundColor: 'green',
     flexDirection: 'row',

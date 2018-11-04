@@ -7,6 +7,10 @@ import { StyleSheet, Text, View, Button, TextInput } from 'react-native';
 
 
 class NewWalkScreenDeparture extends React.Component {
+  static navigationOptions = {
+    title: 'Select Time',
+  };
+
   constructor(props) {
      super(props);
      this.state = { text: '' };
