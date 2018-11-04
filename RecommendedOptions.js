@@ -3,7 +3,7 @@ Gives the user option to take recommended WALK or create new WALK.
 */
 
 import React from 'react';
-import { StyleSheet, ScrollView, Text, View, Button, Alert } from 'react-native';
+import { StyleSheet, ScrollView, Text, View, Button, Alert, TouchableHighlight } from 'react-native';
 
 class RecommendedOptionsScreen extends React.Component {
   static navigationOptions = {
@@ -13,24 +13,22 @@ class RecommendedOptionsScreen extends React.Component {
   render() {
     return (
       <View style={styles.container}>
-        <View style={styles.buttonContainer}>
-          <Text style = {styles.createWalkStyle}> Pack Sequoia {"\n"} {"\n"}
-            Memorial to Unit 3 {"\n"} Departure: 8:45 pm </Text>
-          <Button
-            title="Walk #1"
-            color="transparent"
-            onPress={() => this.props.navigation.navigate('Existing')}
-          />
+        <TouchableHighlight
+          onPress={() => Alert.alert("You've joined Pack Sequoia!")}
+          onLongPress={() => this.props.navigation.navigate('PurpleScreen')}>
+          <View style={styles.buttonContainer}>
+            <Text style = {styles.createWalkStyle}> Pack Sequoia {"\n"} {"\n"}
+              Memorial to Unit 3 {"\n"} Departure: 8:45 pm </Text>
           </View>
-        <View style={styles.buttonContainer}>
-          <Text style = {styles.createWalkStyle}> Pack Honey {"\n"} {"\n"}
-            Memorial to Unit 3 {"\n"} Departure: 9:15 pm </Text>
-          <Button
-            title="Walk #2"
-            color="transparent"
-            onPress={() => Alert.alert("You've joined an existing walk!")}
-          />
-        </View>
+          </TouchableHighlight>
+        <TouchableHighlight
+          onPress={() => Alert.alert("You've joined Pack Honey!")}
+          onLongPress={() => this.props.navigation.navigate('GoldScreen')}>
+            <View style={styles.buttonContainer}>
+            <Text style = {styles.createWalkStyle}> Pack Honey {"\n"} {"\n"}
+              Memorial to Unit 3 {"\n"} Departure: 9:15 pm </Text>
+          </View>
+        </TouchableHighlight>
         <View style={styles.buttonContainer}>
           <Text style = {styles.createWalkStyle}> Create a Pack {"\n"} {"\n"}
             Memorial to Unit 3  {"\n"} Departure: 9:00 pm </Text>
@@ -78,6 +76,7 @@ const styles = StyleSheet.create({
   },
   createWalkStyle: {
     fontSize: 20,
+    width: 200,
     fontWeight: "bold",
     position: "absolute",
     textAlign: "center",

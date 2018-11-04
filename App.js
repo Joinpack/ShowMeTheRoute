@@ -17,6 +17,8 @@ import NewWalkScreenDeparture from './NewWalkDeparture';
 import Confirmation from './Confirmation';
 import TransitionScreen from './Transition';
 
+import PurpleScreen from './PurpleScreen';
+import GoldScreen from './GoldScreen';
 
 const RootStack = createStackNavigator(
   {
@@ -34,7 +36,9 @@ const RootStack = createStackNavigator(
     Departure: NewWalkScreenDeparture,
     Existing: ExistingWalksScreen,
     NewAndExistingWalks: NewAndExistingWalksScreen,
-    Confirmation: Confirmation
+    Confirmation: Confirmation,
+    PurpleScreen: PurpleScreen,
+    GoldScreen: GoldScreen,
   },
   {
     initialRouteName: 'Home',
