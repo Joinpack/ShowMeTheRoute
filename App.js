@@ -8,7 +8,8 @@ import Unit3Screen from './Unit3';
 import DepartureTimesScreen from './DepartureTimes'
 import RecommendedOptionsScreen from './RecommendedOptions';
 import Directions from './Directions';
-import ExistingWalksScreen from './ExistingWalks'
+import ExistingWalksScreen from './ExistingWalks';
+import NewAndExistingWalksScreen from './NewAndExistingWalks';
 import WalkHomeScreen from './WalkHomeScreen';
 import NewWalkScreenLocation from './NewWalkLocation';
 import NewWalkScreenDestination from './NewWalkDestination';
@@ -32,6 +33,7 @@ const RootStack = createStackNavigator(
     Destination: NewWalkScreenDestination,
     Departure: NewWalkScreenDeparture,
     Existing: ExistingWalksScreen,
+    NewAndExistingWalks: NewAndExistingWalksScreen,
     Confirmation: Confirmation
   },
   {

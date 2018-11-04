@@ -32,12 +32,12 @@ class RecommendedOptionsScreen extends React.Component {
           />
         </View>
         <View style={styles.buttonContainer}>
-          <Text style = {styles.createWalkStyle}> Your Pack {"\n"} {"\n"}
-            Create Walk {"\n"} Departure: TBD </Text>
+          <Text style = {styles.createWalkStyle}> Create a Pack {"\n"} {"\n"}
+            Memorial to Unit 3  {"\n"} Departure: 9:00 pm </Text>
           <Button
             title="Walk #1"
             color="transparent"
-            onPress={() => this.props.navigation.navigate('New')}
+            onPress={() => this.props.navigation.navigate('NewAndExistingWalks')}
           />
         </View>
         <View style = {styles.buttonSpace}>
