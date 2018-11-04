@@ -1,6 +1,5 @@
 import React from 'react';
 import { StyleSheet, Text, View, Button, TextInput } from 'react-native';
-import logIn from './Login';
 
 class HomeScreen extends React.Component {
   static navigationOptions = {
