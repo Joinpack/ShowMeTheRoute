@@ -15,7 +15,7 @@ class HomeScreen extends React.Component {
     return (
       <View style={styles.container}>
         <Text style = {styles.homeScreenText}>
-          {"<"} Insert Title {">"}
+          Start or Join a Walk
         </Text>
         <TextInput style={{height: 100, width: 200, fontSize: 20}} textAlign={'center'} placeholder="Enter your username"
           onChangeText={(username) => this.setState({username})}
@@ -55,7 +55,6 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     justifyContent: 'center',
     borderRadius: 25,
-
   },
 });
 

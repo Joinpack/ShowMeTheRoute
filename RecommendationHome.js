@@ -4,7 +4,7 @@ upon current location and general departure time.
 */
 
 import React from 'react';
-import { StyleSheet, Text, View, Button, Animated } from 'react-native';
+import { StyleSheet, Text, View, Button, ActivityIndicator } from 'react-native';
 
 
 class RecommendationHomeScreen extends React.Component {
@@ -20,7 +20,7 @@ class RecommendationHomeScreen extends React.Component {
           <Button
             title="Identify Location"
             color="transparent"
-            onPress={{Animated.spring(0.3)}, => this.props.navigation.navigate('MemorialStadium')}
+            onPress={() => this.props.navigation.navigate('MemorialStadium')}
           />
         </View>
       </View>

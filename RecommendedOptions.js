@@ -3,7 +3,7 @@ Gives the user option to take recommended WALK or create new WALK.
 */
 
 import React from 'react';
-import { StyleSheet, ScrollView, Text, View, Button } from 'react-native';
+import { StyleSheet, ScrollView, Text, View, Button, Alert } from 'react-native';
 
 class RecommendedOptionsScreen extends React.Component {
   static navigationOptions = {
@@ -13,14 +13,13 @@ class RecommendedOptionsScreen extends React.Component {
   render() {
     return (
       <View style={styles.container}>
-        <Text> {"\n"} {"\n"} {"\n"} </Text>
         <View style={styles.buttonContainer}>
           <Text style = {styles.createWalkStyle}> Recommendation 1 {"\n"} {"\n"}
             Memorial to South Side {"\n"} Departure: 3:00 pm </Text>
           <Button
             title="Walk #1"
             color="transparent"
-            onPress={() => this.props.navigation.navigate('New')}
+            onPress={() => this.props.navigation.navigate('Existing')}
           />
           </View>
         <View style={styles.buttonContainer}>
@@ -29,17 +28,24 @@ class RecommendedOptionsScreen extends React.Component {
           <Button
             title="Walk #2"
             color="transparent"
-            onPress={() => this.props.navigation.navigate('Home')}
+            onPress={() => Alert.alert("You've joined an existing walk!")}
           />
         </View>
         <View style={styles.buttonContainer}>
           <Text style = {styles.createWalkStyle}> Recommendation 3 {"\n"} {"\n"}
-            Create Walk {"\n"} Departure: TBD pm </Text>
+            Create Walk {"\n"} Departure: TBD </Text>
           <Button
             title="Walk #1"
             color="transparent"
             onPress={() => this.props.navigation.navigate('New')}
           />
+        </View>
+        <View style = {styles.buttonSpace}>
+            <Button
+              title="Existing"
+              color ='white'
+              onPress={() => this.props.navigation.navigate('Existing')}
+            />
           </View>
       </View>
     );
@@ -54,10 +60,18 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
   },
   buttonContainer: {
-    marginBottom: 100,
+    margin: 20,
     width: 250,
     height: 100,
     backgroundColor: 'gray',
+    flexDirection: 'row',
+    justifyContent: 'center',
+    borderRadius: 25,
+  },
+  buttonSpace: {
+    margin: 20,
+    color: 'white',
+    backgroundColor: 'black',
     flexDirection: 'row',
     justifyContent: 'center',
     borderRadius: 25,

@@ -14,7 +14,8 @@ class MemorialStadiumScreen extends React.Component {
   render() {
     return (
       <View style={styles.container}>
-        <Text style = {styles.idStyle}> [ Memorial Stadium ] </Text>
+        <Text style = {styles.idStyle}> [ Location Identified: {"\n"}
+                                          Memorial Stadium ] </Text>
           <Image
             borderColor = "black"
             borderWidth = "10"
