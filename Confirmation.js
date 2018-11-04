@@ -1,38 +1,33 @@
 /*
-NewWalkDeparture solicits user input departure data in order to create a NEW WALK.
+Final screen before uploading to Firebase. Redirects to Existing Walks screen once
+user hits confirm.
 */
 
 import React from 'react';
 import { StyleSheet, Text, View, Button, TextInput } from 'react-native';
-import Confirmation from './Confirmation'
 
 
-class NewWalkScreenDeparture extends React.Component {
+class Confirmation extends React.Component {
   static navigationOptions = {
-    title: 'Select Time',
+    title: 'Confirm',
   };
 
   constructor(props) {
      super(props);
-     this.state = { when: '' };
+     this.state = { confirm: '' };
   }
 
   render() {
      return (
        <View style = {styles.container}>
-         <TextInput
-           style={{height: 500, width: 1000, textAlign: 'center', fontSize: 30}}
-           placeholder="When are you leaving?"
-           onChangeText={(when) => this.setState({when})}
-           value={this.state.when}
-         />
+       <Text>Please confirm the fields below</Text>
          <View style = {styles.buttonContainer}>
            <Button
-             title="Next"
+             title="Confirm"
              color="white"
-             onPress={() => this.props.navigation.navigate('Confirmation')}
+             onPress={() => this.props.navigation.navigate('Home')}
            />
-        </View>
+         </View>
       </View>
 
      );
@@ -44,10 +39,11 @@ const styles = StyleSheet.create({
     flex: 1,
     backgroundColor: 'powderblue',
     alignItems: 'center',
+    justifyContent: 'space-around',
   },
   buttonContainer: {
     marginBottom: 100,
-    width: 100,
+    width: 75,
     height: 40,
     backgroundColor: 'black',
     flexDirection: 'row',
@@ -64,4 +60,4 @@ const styles = StyleSheet.create({
   },
 });
 
-export default NewWalkScreenDeparture;
+export default Confirmation;

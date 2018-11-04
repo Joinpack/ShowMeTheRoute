@@ -3,10 +3,12 @@ import { createStackNavigator } from 'react-navigation';
 
 import HomeScreen from './HomeScreen';
 import Directions from './Directions';
-import WalkHomeScreen from './WalkHomeScreen'
-import NewWalkScreenLocation from './NewWalkLocation'
-import NewWalkScreenDestination from './NewWalkDestination'
-import NewWalkScreenDeparture from './NewWalkDeparture'
+import WalkHomeScreen from './WalkHomeScreen';
+import NewWalkScreenLocation from './NewWalkLocation';
+import NewWalkScreenDestination from './NewWalkDestination';
+import NewWalkScreenDeparture from './NewWalkDeparture';
+import Confirmation from './Confirmation';
+
 
 
 const RootStack = createStackNavigator(
@@ -16,7 +18,8 @@ const RootStack = createStackNavigator(
     WalkHome: WalkHomeScreen,
     New: NewWalkScreenLocation,
     Destination: NewWalkScreenDestination,
-    Departure: NewWalkScreenDeparture
+    Departure: NewWalkScreenDeparture,
+    Confirmation: Confirmation
   },
   {
     initialRouteName: 'Home',
