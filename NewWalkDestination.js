@@ -7,9 +7,13 @@ import { StyleSheet, Text, View, Button, TextInput } from 'react-native';
 
 
 class NewWalkScreenDestination extends React.Component {
+  static navigationOptions = {
+    title: 'Select Destination',
+  };
+
   constructor(props) {
      super(props);
-     this.state = { text: '' };
+     this.state = { destination: '' };
   }
 
   render() {
@@ -18,8 +22,8 @@ class NewWalkScreenDestination extends React.Component {
          <TextInput
            style={{height: 500, width: 1000, textAlign: 'center', fontSize: 30}}
            placeholder="What is your destination?"
-           onChangeText={(text) => this.setState({text})}
-           value={this.state.text}
+           onChangeText={(destination) => this.setState({destination})}
+           value={this.state.destination}
          />
          <View style = {styles.buttonContainer}>
            <Button

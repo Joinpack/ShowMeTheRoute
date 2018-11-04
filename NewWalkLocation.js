@@ -1,25 +1,21 @@
-/*
-NewWalkLocation solicits user input location data in order to create a NEW WALK.
-*/
-
-import React from 'react';
-import { StyleSheet, Text, View, Button, TextInput } from 'react-native';
-
-
 class NewWalkScreenLocation extends React.Component {
+  static navigationOptions = {
+    title: 'Select Location',
+  };
+
   constructor(props) {
      super(props);
-     this.state = { text: '' };
+     this.state = { location: '' };
   }
 
   render() {
      return (
        <View style = {styles.container}>
          <TextInput
-           style={{height: 500, width: 1000, textAlign: 'center', fontSize: 30}}
            placeholder="Where are you?"
-           onChangeText={(text) => this.setState({text})}
-           value={this.state.text}
+           style={{height: 500, width: 1000, textAlign: 'center', fontSize: 30}}
+           onChangeText={(location) => this.setState({location})}
+           value={this.state.location}
          />
          <View style = {styles.buttonContainer}>
            <Button
@@ -43,9 +39,9 @@ const styles = StyleSheet.create({
   },
   buttonContainer: {
     marginBottom: 100,
-    width: 100,
+    width: 75,
     height: 40,
-    backgroundColor: 'grey',
+    backgroundColor: 'black',
     flexDirection: 'row',
     borderRadius: 25,
     justifyContent: 'center'
