@@ -25,13 +25,17 @@ class NewWalkScreenDeparture extends React.Component {
     this.state = {
       from: 'California Memorial Stadium',
       to: '---',
+      departure: new Date(),
       modalIsVisible: false,
+      modalIsVisible2: false,
       modalAnimatedValue: new Animated.Value(0),
+      modalAnimatedValue2: new Animated.Value(0),
     };
     this.setDestination = this.setDestination.bind(this);
+    this.setDateTime = this.setDateTime.bind(this);
   }
 
-  _handlePressDone = () => {
+  _handlePressDone() {
     Animated.timing(this.state.modalAnimatedValue, {
       toValue: 0,
       duration: 150,
@@ -41,7 +45,17 @@ class NewWalkScreenDeparture extends React.Component {
     });
   };
 
-  _handlePressOpen = () => {
+  _handlePressDone2() {
+    Animated.timing(this.state.modalAnimatedValue2, {
+      toValue: 0,
+      duration: 150,
+      useNativeDriver: true,
+    }).start(() => {
+      this.setState({ modalIsVisible2: false });
+    });
+  };
+
+  _handlePressOpen() {
     if (this.state.modalIsVisible) {
       return;
     }
@@ -55,11 +69,29 @@ class NewWalkScreenDeparture extends React.Component {
     });
   };
 
+  _handlePressOpen2() {
+    if (this.state.modalIsVisible2) {
+      return;
+    }
+
+    this.setState({ modalIsVisible2: true }, () => {
+      Animated.timing(this.state.modalAnimatedValue2, {
+        toValue: 1,
+        duration: 200,
+        useNativeDriver: true,
+      }).start();
+    });
+  };
+
   setDestination(destination) {
     this.setState({to: destination});
   }
 
-  _maybeRenderModal = () => {
+  setDateTime(dateTime) {
+    this.setState({departure: dateTime})
+  }
+
+  _maybeRenderModal() {
     if (!this.state.modalIsVisible) {
       return null;
     }
@@ -103,15 +135,60 @@ class NewWalkScreenDeparture extends React.Component {
       </View>
     );
   }
+
+  _maybeRenderModal2() {
+    if (!this.state.modalIsVisible2) {
+      return null;
+    }
+
+    const { modalAnimatedValue } = this.state;
+    const opacity = modalAnimatedValue;
+    const translateY = modalAnimatedValue.interpolate({
+      inputRange: [0, 1],
+      outputRange: [300, 0],
+    });
+
+    return (
+      <View
+        style={StyleSheet.absoluteFill}
+        pointerEvents={this.state.modalIsVisible2 ? 'auto' : 'none'}>
+        <TouchableWithoutFeedback onPress={this._handlePressDone2}>
+          <Animated.View style={[styles.overlay, { opacity }]} />
+        </TouchableWithoutFeedback>
+        <Animated.View
+          style={{
+            position: 'absolute',
+            bottom: 0,
+            left: 0,
+            transform: [{ translateY }],
+          }}>
+          <View style={styles.toolbar}>
+            <View style={styles.toolbarRight}>
+              <Button title="Done" onPress={this._handlePressDone2} />
+            </View>
+          </View>
+          <DatePickerIOS
+            date={this.state.departure}
+            onDateChange={this.setDateTime}
+          />
+        </Animated.View>
+      </View>
+    );
+  }
   render() {
     return (
       <View style = {styles.container}>
         <Text> From: {this.state.from} </Text>
-        <Text> When are heading? </Text>
+        <Text> Where are heading? </Text>
         <TouchableHighlight onPress={ this._handlePressOpen }>
           <Text> {this.state.to} </Text>
         </TouchableHighlight>
+        <Text> When are going? </Text>
+        <TouchableHighlight onPress={ this._handlePressOpen2 }>
+          <Text> {this.state.departure.toTimeString()} </Text>
+        </TouchableHighlight>
         {this._maybeRenderModal()}
+        {this._maybeRenderModal2()}
         <View style = {styles.buttonContainer}>
           <Button
             title="Request"
