@@ -13,7 +13,7 @@ class NewWalkScreenLocation extends React.Component {
 
   constructor(props) {
      super(props);
-     this.state = { text: '' };
+     this.state = { location: '' };
   }
 
   render() {
@@ -22,8 +22,8 @@ class NewWalkScreenLocation extends React.Component {
          <TextInput
            placeholder="Where are you?"
            style={{height: 500, width: 1000, textAlign: 'center', fontSize: 30}}
-           onChangeText={(text) => this.setState({text})}
-           value={this.state.text}
+           onChangeText={(location) => this.setState({location})}
+           value={this.state.location}
          />
          <View style = {styles.buttonContainer}>
            <Button
