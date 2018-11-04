@@ -19,11 +19,12 @@ class HomeScreen extends React.Component {
         </Text>
         <TextInput style={{height: 100, width: 200, fontSize: 20}} textAlign={'center'} placeholder="Enter your username"
           onChangeText={(username) => this.setState({username})}
+          blurOnSubmit = {true}
         />
         <View style = {styles.buttonSpace}>
             <Button
-              title="Continue"
-              color ='black'
+              title="Enter"
+              color ='white'
               onPress={() => this.props.navigation.navigate('RecommendationHome')}
             />
           </View>
@@ -50,8 +51,8 @@ const styles = StyleSheet.create({
   },
   buttonSpace: {
     marginTop: 10,
-    color: 'black',
-    backgroundColor: 'green',
+    color: 'white',
+    backgroundColor: 'black',
     flexDirection: 'row',
     justifyContent: 'center',
     borderRadius: 25,

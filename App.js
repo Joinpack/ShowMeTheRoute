@@ -4,6 +4,8 @@ import { createStackNavigator } from 'react-navigation';
 import HomeScreen from './HomeScreen';
 import RecommendationHomeScreen from './RecommendationHome';
 import MemorialStadiumScreen from './MemorialStadium';
+import Unit3Screen from './Unit3';
+import DepartureTimesScreen from './DepartureTimes'
 import RecommendedOptionsScreen from './RecommendedOptions';
 import Directions from './Directions';
 import ExistingWalksScreen from './ExistingWalks'
@@ -20,6 +22,8 @@ const RootStack = createStackNavigator(
     Home: HomeScreen,
     RecommendationHome: RecommendationHomeScreen,
     MemorialStadium: MemorialStadiumScreen,
+    Unit3: Unit3Screen,
+    DepartureTimes: DepartureTimesScreen,
     Transition: TransitionScreen,
     RecommendedOptions: RecommendedOptionsScreen,
     Directions: Directions,

@@ -7,15 +7,15 @@ import { StyleSheet, ScrollView, Text, View, Button, Alert } from 'react-native'
 
 class RecommendedOptionsScreen extends React.Component {
   static navigationOptions = {
-    title: 'Recommended',
+    title: 'Recommended Options',
   };
 
   render() {
     return (
       <View style={styles.container}>
         <View style={styles.buttonContainer}>
-          <Text style = {styles.createWalkStyle}> Recommendation 1 {"\n"} {"\n"}
-            Memorial to South Side {"\n"} Departure: 3:00 pm </Text>
+          <Text style = {styles.createWalkStyle}> Pack Sequoia {"\n"} {"\n"}
+            Memorial to Unit 3 {"\n"} Departure: 8:45 pm </Text>
           <Button
             title="Walk #1"
             color="transparent"
@@ -23,8 +23,8 @@ class RecommendedOptionsScreen extends React.Component {
           />
           </View>
         <View style={styles.buttonContainer}>
-          <Text style = {styles.createWalkStyle}> Recommendation 2 {"\n"} {"\n"}
-            Memorial to Unit 3 {"\n"} Departure: 3:30 pm </Text>
+          <Text style = {styles.createWalkStyle}> Pack Honey {"\n"} {"\n"}
+            Memorial to Unit 3 {"\n"} Departure: 9:15 pm </Text>
           <Button
             title="Walk #2"
             color="transparent"
@@ -32,7 +32,7 @@ class RecommendedOptionsScreen extends React.Component {
           />
         </View>
         <View style={styles.buttonContainer}>
-          <Text style = {styles.createWalkStyle}> Recommendation 3 {"\n"} {"\n"}
+          <Text style = {styles.createWalkStyle}> Your Pack {"\n"} {"\n"}
             Create Walk {"\n"} Departure: TBD </Text>
           <Button
             title="Walk #1"

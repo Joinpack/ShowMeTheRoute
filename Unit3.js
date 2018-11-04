@@ -1,12 +1,12 @@
 /*
-Memorial Stadium detected!
+Unit 3 confirmation!
 */
 
 import React from 'react';
 import { StyleSheet, Text, View, Button, Image } from 'react-native';
 
 
-class MemorialStadiumScreen extends React.Component {
+class Unit3Screen extends React.Component {
   static navigationOptions = {
     title: 'Location Detected',
   };
@@ -14,21 +14,21 @@ class MemorialStadiumScreen extends React.Component {
   render() {
     return (
       <View style={styles.container}>
-        <Text style = {styles.idStyle}> [ Location Identified: {"\n"}
-                                          Memorial Stadium ] </Text>
+        <Text style = {styles.idStyle}> [ Destination: {"\n"}
+                                          Unit 3 Dorms ] </Text>
           <Image
             borderColor = "black"
             borderWidth = "10"
             borderRadius = "5"
             style={{width: 250, height: 250}}
-            source={{uri: 'http://3.bp.blogspot.com/-EMHguk1Eu80/UqCasx5KnJI/AAAAAAAAHDA/9RAQOiV0q_I/s1600/5555.jpg'}}
+            source={{uri: 'http://www.inspectionservices.net/wp-content/uploads/2016/07/UCB-Unit-3.jpg'}}
           />
         <View style={styles.buttonContainer}>
-          <Text style = {styles.optionStyle}> Select Departure </Text>
+          <Text style = {styles.optionStyle}> Select Departure Time </Text>
             <Button
-              title="Select Departure"
+              title="Select Departure Time"
               color="transparent"
-              onPress={() => this.props.navigation.navigate('Departure')}
+              onPress={() => this.props.navigation.navigate('DepartureTimes')}
             />
         </View>
       </View>
@@ -69,4 +69,4 @@ const styles = StyleSheet.create({
   },
 });
 
-export default MemorialStadiumScreen;
+export default Unit3Screen;

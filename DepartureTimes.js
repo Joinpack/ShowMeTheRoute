@@ -15,7 +15,7 @@ const LOCATIONS = [
   {location: 'Sproul Plaza', geocord: '37.8695385,-122.261525'}
 ];
 
-class NewWalkScreenDeparture extends React.Component {
+class DepartureTimesScreen extends React.Component {
   static navigationOptions = {
     title: 'Confirm Route',
   };
@@ -23,8 +23,7 @@ class NewWalkScreenDeparture extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      from: 'Memorial Stadium',
-      to: '[SELECT DESTINATION]',
+      Departure: '[SELECT DESTINATION]',
       departure: new Date(),
       modalIsVisible: false,
       modalIsVisible2: false,
@@ -178,27 +177,25 @@ class NewWalkScreenDeparture extends React.Component {
   render() {
     return (
       <View style = {styles.container}>
-        <Text style={{fontSize: 24, marginBottom: 20}}> From: {this.state.from} </Text>
-        <Text style={{fontSize: 24, marginBottom: 20}}> To: {this.state.destination} </Text>
+        <Text style={{fontSize: 24, marginBottom: 20}}> Departure: {this.state.destination} </Text>
        <View style={{width: 300}}>
          <Picker selectedValue={this.state.destination}
                     onValueChange={(destination) => this.setState({destination})}>
-            <Picker.Item key="Dorms: Unit 1" label="Unit 1" value="Unit 1" />
-            <Picker.Item key="Dorms: Unit 2" label="Unit 2" value="Unit 2" />
-            <Picker.Item key="Dorms: Unit 3/Blackwell Hall" label="Unit 3" value="Unit 3" />
-            <Picker.Item key="Dorms: Foothill" label="Foothill" value="Foothill" />
-            <Picker.Item key="Dorms: Bowles Hall" label="Bowles Hall" value="Bowles Hall" />
-            <Picker.Item key="Sproul Hall" label="Sproul Hall" value="Sproul Hall" />
-            <Picker.Item key="North Gate Hall" label="North Gate Hall" value="North Gate Hall" />
-            <Picker.Item key="Downtown Berkeley BART" label="Downtown Berkeley BART" value="Downtown Berkeley BART" />
+            <Picker.Item key="1" label="5 pm" value="5 pm" />
+            <Picker.Item key="1" label="6 pm " value="6 pm" />
+            <Picker.Item key="1" label="7 pm" value="7 pm" />
+            <Picker.Item key="1" label="8 pm " value="8 pm" />
+            <Picker.Item key="1" label="9 pm" value="9 pm" />
+            <Picker.Item key="1" label="10 pm " value="10 pm" />
+
            </Picker>
         </View>
           <Text> Current Time: {this.state.departure.toTimeString()} </Text>
         <View style = {styles.buttonContainer}>
           <Button
-            title="Confirm"
+            title="Find"
             color="white"
-            onPress={() => this.props.navigation.navigate('Unit3')}
+            onPress={() => this.props.navigation.navigate('RecommendedOptions')}
           />
         </View>
       </View>
@@ -216,7 +213,7 @@ const styles = StyleSheet.create({
   buttonContainer: {
     marginBottom: 100,
     marginTop: 50,
-    width: 110,
+    width: 100,
     height: 40,
     backgroundColor: 'black',
     flexDirection: 'row',
@@ -245,4 +242,4 @@ const styles = StyleSheet.create({
   },
 });
 
-export default NewWalkScreenDeparture;
+export default DepartureTimesScreen;
