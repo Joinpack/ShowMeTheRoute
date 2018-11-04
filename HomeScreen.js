@@ -10,6 +10,7 @@ class HomeScreen extends React.Component {
           <View style = {styles.buttonSpace}>
             <Button
               title="Authentication"
+              color ='black'
               onPress={() => this.props.navigation.navigate('WalkHome')}
               // onPress={logIn}
             />
@@ -37,6 +38,12 @@ const styles = StyleSheet.create({
   },
   buttonSpace: {
     marginTop: 20,
+    color: 'black',
+    backgroundColor: 'green',
+    flexDirection: 'row',
+    justifyContent: 'center',
+    borderRadius: 25,
+
   },
 });
 
